@@ -14,7 +14,7 @@ feature 'List articles on index page' do
     end
     
     it 'displays second article title' do
-      expect(page).to have_content 'Some really breaking action'
+      expect(page).to have_content 'Learn Rails 5'
     end
   end
 end
