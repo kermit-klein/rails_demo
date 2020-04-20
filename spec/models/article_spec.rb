@@ -1,3 +1,4 @@
+require "rails_helper"
 # spec/models/article_spec.rb
 RSpec.describe Article, type: :model do
     describe 'DB table' do
