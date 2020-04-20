@@ -5,7 +5,7 @@ feature 'List articles on index page' do
   context 'with articles in db' do
     before do
       create(:article, title: 'A breaking news item')
-      create(:article, title: 'Learn Rails 6')
+      create(:article, title: 'Learn Rails 5')
       visit root_path
     end
     
