@@ -10,15 +10,14 @@ feature "User can create an article" do
        before do
         fill_in "article_title", with: "Sweden won EURO 2021"
         fill_in "article_content", with: "Nahh just kidding!"
-        click_on "Save Article"
+        click_on "Save"
        end
      
-       it 'User should be on article show page' do
+       it 'User should see the article created' do
         article = Article.find_by(title: 'Sweden won EURO 2021')
         expect(current_path).to eq article_path(article)
        end
        
-
     end
 
 end
