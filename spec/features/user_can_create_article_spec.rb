@@ -2,7 +2,7 @@ require "rails_helper"
 feature "User can create an article" do
     before do
         visit root_path
-        click_on "New Article"
+        click_on "New Article"        #can also just write   visit new_article_path
     end
 
 
@@ -25,6 +25,10 @@ feature "User can create an article" do
        it   "User should see title of article" do
             expect(page).to have_content "Nahh just kidding!"
        end
+
+       it "User should see success message" do
+        expect(page).to have_content "You did buddy,article posted!"
+      end
        
     end
 
