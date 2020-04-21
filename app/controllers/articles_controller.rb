@@ -13,6 +13,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params.require(:article).permit(:title, :content))
-    @article.save
+
+    @article.save == nil ? (render "new") : (redirect_to @article)
   end
+  
 end
