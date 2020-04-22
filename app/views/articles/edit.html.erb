@@ -1,6 +1,6 @@
 <h1>Edit Article</h1>
 
-<%= form_with(model: @article, local: true) do |form| %>
+<%= form_with scope: :article, url: article_path, method: :put ,local: true do |form| %>
      <p>
         <%= form.label :title %>  <br>
         <%= form.text_field :title %>
