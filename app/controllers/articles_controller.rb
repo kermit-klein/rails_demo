@@ -19,8 +19,20 @@ class ArticlesController < ApplicationController
      else   
       redirect_to :new_article, notice: "Title or content can't be blank"
      end 
-      
-      
+  end
+
+  def edit
+      @article = Article.find(params[:id])
+  end
+
+
+  def update
+      @article = Article.find(params[:id])
+      if @article.update(params.require(:article).permit(:title, :content))
+        redirect_to @article, notice: "Updated!"
+      else
+        render 'edit'
+      end
   end
   
 end
