@@ -29,7 +29,29 @@ feature "User can create an article" do
        it "User should see success message" do
         expect(page).to have_content "You did buddy,article posted!"
       end
-       
     end
+
+
+     describe "User doesn't enter a title for the article [Sad Path]" do
+        before do
+          fill_in "Content", with: "I don't know Rick"
+          click_on "Save"
+        end
+   
+        it 'User should see error message' do
+           expect(page).to have_content "Title or content can't be blank"
+        end
+     end
+
+     describe "User doesn't enter a content for the article [Sad Path]" do
+          before do
+            fill_in "Title", with: "It looks fake to me"
+            click_on "Save"
+          end
+     
+          it 'User should see error message' do
+             expect(page).to have_content "Title or content can't be blank"
+          end
+       end
 
 end

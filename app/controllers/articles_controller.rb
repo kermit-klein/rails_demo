@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
      if (@article.persisted?) 
       redirect_to @article, notice:"You did buddy,article posted!"
      else   
-      render "new", notice: "Something went wrong"
+      redirect_to :new_article, notice: "Title or content can't be blank"
      end 
       
       
