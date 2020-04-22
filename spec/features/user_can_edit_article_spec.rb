@@ -9,8 +9,8 @@ feature "User can edit article" do
        end
 
          it "User can edit the content" do
-            fill_in "article_content", with: "Discord or Zoom is better"
-            click_on "Update"
+            fill_in "Content", with: "Discord or Zoom is better"
+            click_on "Save Edit"
             expect(page).to have_content "Discord or Zoom is better"
          end
     end
