@@ -19,8 +19,12 @@ class ArticlesController < ApplicationController
      else   
       redirect_to :new_article, notice: "Title or content can't be blank"
      end 
-      
-      
+  end
+
+  def update
+  end
+
+  def edit
   end
   
 end
