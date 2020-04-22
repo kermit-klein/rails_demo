@@ -12,9 +12,15 @@ class ArticlesController < ApplicationController
   end  
 
   def create
-    @article = Article.new(params.require(:article).permit(:title, :content))
+    @article = Article.create(params.require(:article).permit(:title, :content))
 
-    @article.save == nil ? (render "new") : (redirect_to @article)
+     if (@article.persisted?) 
+      redirect_to @article, notice:"You did buddy,article posted!"
+     else   
+      render "new", notice: "Something went wrong"
+     end 
+      
+      
   end
   
 end
