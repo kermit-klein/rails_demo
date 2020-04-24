@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'devise'
 end
 
 group :development do
