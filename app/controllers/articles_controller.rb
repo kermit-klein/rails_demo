@@ -15,9 +15,11 @@ class ArticlesController < ApplicationController
     @article = Article.create(params.require(:article).permit(:title, :content))
 
      if (@article.persisted?) 
-      redirect_to @article, notice:"You did buddy,article posted!"
+      redirect_to @article
+      flash[:notice]="You did buddy,article posted!"
      else   
-      redirect_to :new_article, notice: "Title or content can't be blank"
+      flash[:notice] = "Title or content can't be blank"
+      redirect_to :new_article
      end 
   end
 
