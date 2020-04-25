@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
       flash[:notice]="You did buddy,article posted!"
      else   
-      flash[:notice] = "Title or content can't be blank"
+      flash[:alert] = "Title or content can't be blank"
       redirect_to :new_article
      end 
   end

@@ -14,14 +14,12 @@
 
 
 
-
-<% if flash[:notice] %>
-  <p class="alert alert-success"><%= flash[:notice] %></p>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= flash[:notice] %></p>
+  <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-
 
 
     <%= yield %>
