@@ -16,6 +16,11 @@ feature "User can login" do
             it "user logs in" do
                 expect(page).to have_content "Hello, #{user.username}"
             end
+
+            it "user logs out" do
+                click_on "Logout"
+                expect(page).to have_content "Signed out successfully."
+            end
         end
  
         describe "with wrong password" do
