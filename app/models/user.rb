@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates_uniqueness_of :username
   validates_uniqueness_of :email
-  
+  has_many :articles
 end

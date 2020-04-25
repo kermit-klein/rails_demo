@@ -9,12 +9,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end  
 
   def create
-    @article = Article.create(params.require(:article).permit(:title, :content))
-
+    @article = current_user.articles.build(params.require(:article).permit(:title, :content))
+    @article.save
      if (@article.persisted?) 
       redirect_to @article
       flash[:notice]="You did buddy,article posted!"
