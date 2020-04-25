@@ -1,7 +1,8 @@
 feature "User can edit article" do
-
+   let!(:user) { create(:user) }
     describe "Actually can edit article" do
        before do
+            login_as(user,scope: :user)
             create(:article, title: "Google Hangout Sucks", content: "Yes it does")
             visit root_path
             click_on "Google Hangout Sucks"
