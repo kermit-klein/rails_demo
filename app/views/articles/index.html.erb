@@ -1,8 +1,11 @@
+<h1> Latest Articles </h2>
 <ul>
-<%= link_to 'New Article', new_article_path %>
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article_path(article) %><br />
     </li>
   <% end %>
+
+  
 </ul>
+<%= link_to 'Add New Article', new_article_path, class:"btn btn-primary" %>

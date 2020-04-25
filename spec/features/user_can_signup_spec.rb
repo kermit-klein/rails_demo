@@ -6,7 +6,7 @@ feature 'user can sign up' do
             fill_in "Email", with: "donald@trump.com"
             fill_in "Password", with: "password123"
             fill_in "Password confirmation", with: "password123"
-            click_on "Sign up"
+            click_on(class: "signupaction")
         end
     
         it 'user can fill form and submit' do
@@ -23,14 +23,14 @@ feature 'user can sign up' do
 
         it 'should give an error no name is given' do
             fill_in "Password confirmation", with: "password123"
-            click_on "Sign up"
+            click_on(class: "signupaction")
             expect(page).to have_content "Username can't be blank"
         end
 
         it 'should give an error if passwords dont match' do
             fill_in "Username", with: "Donald"
             fill_in "Password confirmation", with: "password"
-            click_on "Sign up"
+            click_on(class: "signupaction")
             expect(page).to have_content "Password confirmation doesn't match Password"
         end
     end 
@@ -43,7 +43,7 @@ feature 'user can sign up' do
             fill_in "Email", with: user.email
             fill_in "Password", with: user.password
             fill_in "Password confirmation", with: user.password
-            click_on "Sign up"
+            click_on(class: "signupaction")
         end
 
         it "should give an error when name is taken" do

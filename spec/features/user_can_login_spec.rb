@@ -10,19 +10,19 @@ feature "User can login" do
             before do
              fill_in "Email", with: user.email
              fill_in "Password", with: user.password
-             click_on "Log in"
+             click_on(class: "loginaction")
             end
  
-            # it "user logs in" do
-            #     expect(page).to have_content "Hello, #{user.name}"
-            # end
+            it "user logs in" do
+                expect(page).to have_content "Hello, #{user.username}"
+            end
         end
  
         describe "with wrong password" do
             before do
              fill_in "Email", with: user.email
              fill_in "Password", with: "password124"
-             click_on "Log in"
+             click_on(class: "loginaction")
             end
  
             it "user can't login" do
@@ -34,7 +34,7 @@ feature "User can login" do
              before do
                fill_in "Email", with: "Donald@potus.com"
                fill_in "Password", with: user.password
-               click_on "Log in"
+               click_on(class: "loginaction")
              end
  
              it "user can't login" do
