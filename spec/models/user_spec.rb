@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe User, type: :model do
   describe 'DB table' do
       it { is_expected.to have_db_column :id }
@@ -19,5 +18,4 @@ RSpec.describe User, type: :model do
           expect(create(:user)).to be_valid
       end
   end
-
 end

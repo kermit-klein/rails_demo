@@ -3,7 +3,6 @@ feature 'User can see specific article' do
     before do
       create(:article, title: 'A breaking news item', content: 'Some breaking action')
       create(:article, title: 'Learn Rails 5', content: 'Build awesome rails applications')
-      
       visit root_path
       click_on 'A breaking news item'
     end

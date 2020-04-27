@@ -15,19 +15,18 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(params.require(:article).permit(:title, :content))
 
-     if (@article.persisted?) 
+    if (@article.persisted?) 
       redirect_to @article
       flash[:notice]="You did buddy,article posted!"
-     else   
+    else   
       flash[:alert] = "Title or content can't be blank"
       redirect_to :new_article
-     end 
+    end 
   end
 
   def edit
       @article = Article.find(params[:id])
   end
-
 
   def update
       @article = Article.find(params[:id])
@@ -39,10 +38,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+      @article = Article.find(params[:id])
+      @article.destroy
  
-  redirect_to articles_path
+      redirect_to articles_path
   end
-  
 end

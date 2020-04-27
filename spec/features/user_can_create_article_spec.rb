@@ -2,7 +2,6 @@ require "rails_helper"
 feature "User can create an article" do
 
    describe "if user is logged in" do
-   
       before do
          visit root_path
          click_on "New Article"        #can also just write   visit new_article_path
@@ -10,7 +9,6 @@ feature "User can create an article" do
       it   "User should see a error" do
          expect(page).to have_content "You need to sign in or sign up before continuing."
       end
-
    end
 
    describe "Valid user can create an article" do

@@ -13,5 +13,4 @@ feature "User can delete article" do
             expect(page).to_not have_content "Google Hangout Sucks"
         end    
     end
-
 end
