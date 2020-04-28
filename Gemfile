@@ -37,6 +37,7 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'devise'
+  gem 'pry-rails'
 end
 
 group :development do
