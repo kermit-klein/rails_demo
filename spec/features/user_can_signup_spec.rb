@@ -2,7 +2,7 @@ feature 'user can sign up' do
     describe 'user can create an account' do
         before do
             visit new_user_registration_path
-            fill_in "Username", with: "Donald"
+            fill_in "Name", with: "Donald"
             fill_in "Email", with: "donald@trump.com"
             fill_in "Password", with: "password123"
             fill_in "Password confirmation", with: "password123"
@@ -24,11 +24,11 @@ feature 'user can sign up' do
         it 'should give an error no name is given' do
             fill_in "Password confirmation", with: "password123"
             click_on(class: "signupaction")
-            expect(page).to have_content "Username can't be blank"
+            expect(page).to have_content "Name can't be blank"
         end
 
         it 'should give an error if passwords dont match' do
-            fill_in "Username", with: "Donald"
+            fill_in "Name", with: "Donald"
             fill_in "Password confirmation", with: "password"
             click_on(class: "signupaction")
             expect(page).to have_content "Password confirmation doesn't match Password"
@@ -39,7 +39,7 @@ feature 'user can sign up' do
         let(:user) {create(:user)}
         before do 
             visit new_user_registration_path
-            fill_in "Username", with: user.username
+            fill_in "Name", with: user.name
             fill_in "Email", with: user.email
             fill_in "Password", with: user.password
             fill_in "Password confirmation", with: user.password
@@ -47,7 +47,7 @@ feature 'user can sign up' do
         end
 
         it "should give an error when name is taken" do
-            expect(page).to have_content "Username has already been taken"
+            expect(page).to have_content "Name has already been taken"
         end
     end
 end
