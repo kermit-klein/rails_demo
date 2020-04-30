@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
   def index
     @articles = Article.all
   end
@@ -14,17 +15,18 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.create(params.require(:article).permit(:title, :content))
 
-     if (@article.persisted?) 
-      redirect_to @article, notice:"You did buddy,article posted!"
-     else   
-      redirect_to :new_article, notice: "Title or content can't be blank"
-     end 
+    if (@article.persisted?) 
+      redirect_to @article
+      flash[:notice]="You did buddy,article posted!"
+    else   
+      flash[:alert] = "Title or content can't be blank"
+      redirect_to :new_article
+    end 
   end
 
   def edit
       @article = Article.find(params[:id])
   end
-
 
   def update
       @article = Article.find(params[:id])
@@ -36,10 +38,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+      @article = Article.find(params[:id])
+      @article.destroy
  
-  redirect_to articles_path
+      redirect_to articles_path
   end
-  
 end
