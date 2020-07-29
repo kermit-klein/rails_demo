@@ -1,5 +1,5 @@
 
-![Img](https://imgur.com/KJ4yQHO)
+![Img](https://i.imgur.com/KJ4yQHO.png)
 
 ### Authors
 
